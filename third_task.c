@@ -12,8 +12,29 @@ Top-down: when solving programming problems by breaking them down into smaller a
 
 #include <stdio.h>
 
+int prime(int n){
+  int a=0;
+  for(int i=1; i<=n; i++){
+    if(n%i==0){
+      a++;
+    }
+  }
+  if(a==2)return 1;
+  else return 0;
+}
+
+
+
 int main(){
-
-
+  int twinprimes=0;
+  int k=2;
+  while(twinprimes < 58){
+    if(prime(k)==1 && prime(k+2)==1 && prime(k-2)==0){
+      twinprimes++;
+    }
+    k++;
+  }
+  
+  printf("The 60th twin prime is: %d ",k-1);
   return 0;
 }
