@@ -18,8 +18,33 @@ for any other character it returns the original character.
 
 
 #include <stdio.h>
+#include <ctype.h>
+
+
+
+int vowel(char x){
+    int a=0;
+    
+    if(x=='a' || x=='e' || x=='i' || x=='u' || x=='o'){
+        a=1;
+        
+    }
+    else if (x=='A' || x=='E' || x=='I' || x=='U' || x=='O'){
+        a=2;
+    }
+    return a;
+}
 
 int main(){
-
+    char c;
+    while(scanf("%c",&c)==1){
+        if(vowel(c)==1){
+            printf("%ch%c", c,c);
+        }
+        else if(vowel(c)==2){
+            printf("%ch%c", c,tolower(c));
+        }
+        else  printf("%c",c);
+    }
 return 0;
 }
